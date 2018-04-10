@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nginx1:
+    build:
+      context: ./docker/nginx1
+    volumes:
+      - "./docker/nginx1/html:/usr/share/nginx/html"
+      - "./docker/nginx1/nginx.conf:/etc/nginx/nginx.conf"
+      - "./docker/nginx1/default.conf:/etc/nginx/conf.d/default.conf"
+    ports:
+      - "80:80"
+  nginx2:
+    build:
+      context: ./docker/nginx2
+    volumes:
+      - "./docker/nginx2/html:/usr/share/nginx/html"
+      - "./docker/nginx2/nginx.conf:/etc/nginx/nginx.conf"
+      - "./docker/nginx2/default.conf:/etc/nginx/conf.d/default.conf"
+    ports:
+      - "8080:80"
